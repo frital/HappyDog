@@ -58,7 +58,7 @@ include_once 'head.php';
                         <div class="input-group">
                             <div class="input-group-addon">Nome Fantasia:</div>
                             <input type="text" class="form-control" name="nomeFantasia" id="nomeFantasia" />
-                        </div>
+                        </div>&nbsp;
                     </div>
                     <div class="form-group">
                         <div class="input-group">
