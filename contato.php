@@ -2,7 +2,7 @@
 include_once 'head.php';
 ?>
 <body>
-    <div class="container" A>
+    <div class="container">
         <?php
         include_once 'menu.php';
         ?>
