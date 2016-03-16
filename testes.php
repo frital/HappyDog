@@ -1,12 +1,10 @@
 <?php
-require 'head.php';
+
+require_once $_SERVER['DOCUMENT_ROOT'] . "/HappyDog/dao/UsuarioDAO.php";
+
+$usuarioDao = UsuarioDAO::getInstance();
+
+$usuarios = $usuarioDao->listarUsuarios(2);
+print_r($usuarios);
 ?>
-<body>
-    <div id="demo"> </div>
-    <input type="text" id='nome' name='nome' />
-    <button type="button" onclick="ajax();">Pegar nome</button>
-</body>
-<?php 
-require_once 'rodape.php';
-?>
-</html>
+
