@@ -1,26 +1,16 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- * Description of Teste
- *
- * @author Lemao
- */
 class Teste {
+   
+    private $idTeste;
+    private $descricao;
+    private $valor;
     
-    public $idTeste;
-    public $descricao1;
-    public $inteiro;
-    
-    public function __construct() {
+    function __construct() {
         
     }
 
-    
     public function getIdTeste() {
         return $this->idTeste;
     }
@@ -29,20 +19,20 @@ class Teste {
         $this->idTeste = $idTeste;
     }
 
-    public function getDescricao1() {
-        return $this->descricao1;
+    public function getDescricao() {
+        return $this->descricao;
     }
 
-    public function setDescricao1($descricao1) {
-        $this->descricao1 = $descricao1;
+    public function setDescricao($descricao) {
+        $this->descricao = $descricao;
     }
 
-    public function getInteiro() {
-        return $this->inteiro;
+    public function getValor() {
+        return $this->valor;
     }
 
-    public function setInteiro($inteiro) {
-        $this->inteiro = $inteiro;
+    public function setValor($valor) {
+        $this->valor = $valor;
     }
 
 

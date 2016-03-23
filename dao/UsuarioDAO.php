@@ -17,15 +17,18 @@ class UsuarioDAO {
         return self::$instancia;
     }
 
-    public function listarUsuarios($limite) {
+    public function listarUsuarios($id) {
+        
         try {
-            $sql = "SELECT * FROM teste limit :limite";
+            $sql = "SELECT * FROM teste WHERE idTeste > :id";
             $p_sql = Conexao::getInstance()->prepare($sql);
-            $p_sql->bindValue(":limite", $limite);
+            $p_sql->bindValue(":id", $id);
             $p_sql->execute();
-            return $p_sql->fetchAll(PDO::FETCH_ASSOC);
+            return $p_sql->fetchAll(PDO::FETCH_CLASS, 'Teste');
+            //return $p_sql->fetchAll(PDO::FETCH_CLASS, 'Teste');
+           // return $p_sql->fetchObject('Teste');
         } catch (Exception $e) {
-            print "Ocorreu um erro ao tentar executar esta ação.";
+            print "Ocorreu um erro ao tentar executar esta ação. <br> $e";
         }
     }
 

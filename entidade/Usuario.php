@@ -23,7 +23,7 @@ class Usuario {
 
     function __construct() {
     }
-     
+
     public function getTipo() {
         return $this->tipo;
     }
