@@ -8,8 +8,8 @@ switch ($_REQUEST['acao']) {
             $descricao = entrada($_REQUEST['descricao']);
             $sexo = intval(entrada($_REQUEST['sexo']));
             $altura = floatval(entrada($_REQUEST['altura']));
-            $idRaca = intval(entrada($_REQUEST['idRaca']));
-            $idCor = intval(entrada($_REQUEST['idCor']));
+            $idRaca = intval(entrada($_REQUEST['raca']));
+            $idCor = intval(entrada($_REQUEST['cor']));
             $dataChegada = entrada($_REQUEST['dataChegada']);
             $dataObito = entrada($_REQUEST['dataObito']);
             $obs = entrada($_REQUEST['obs']);
@@ -26,7 +26,8 @@ switch ($_REQUEST['acao']) {
             $animal->setDataObito($dataObito);
             $animal->setObs($obs);
             $animal->setStatus(1);
-            
+            echo 'Próxima aula continuamos daqui. =)';
+            break;
             $animalDao = AnimalDAO::getInstance();
             $retorno = $animalDao->inserirAnimal($animal);
             if($retorno){

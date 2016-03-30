@@ -35,10 +35,6 @@ include_once 'head.php';
                 
                 
             </div>
-            
-            
-            
-            
             <?php include 'rodape.php';
             ?>       
         </div>
