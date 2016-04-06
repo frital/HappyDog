@@ -9,6 +9,13 @@ include_once 'head.php';
         <div class="col-md-3"></div>
         <form class="form-group col-md-6" id="formCadastroAnimal">
             <div class="form-group">
+                <div class="alert alert-success">
+                    <?php if(isset($_REQUEST['msg']))
+                            echo $_REQUEST['msg'];
+                            ?>
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="input-group">
                     <span class="input-group-addon">Nome:</span>
                     <input type="text" class="form-control" id="nome" name="nome" maxlength="255">

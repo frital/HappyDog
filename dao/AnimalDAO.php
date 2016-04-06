@@ -45,7 +45,7 @@ class AnimalDAO {
             $p_sql->bindValue(':obs', $animal->getObs());
             $p_sql->bindValue(':status', $animal->getStatus());
             if($p_sql->execute())
-                return Conexao::$instance->lastInsertId();
+                return Conexao::getInstance()->lastInsertId();
             return false;
         } catch (Exception $e) {
             print "Ocorreu um erro ao tentar executar esta ação. <br> $e";

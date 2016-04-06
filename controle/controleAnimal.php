@@ -7,18 +7,25 @@ switch ($_REQUEST['acao']) {
             $nome = entrada($_REQUEST['nome']);
             $descricao = entrada($_REQUEST['descricao']);
             $sexo = intval(entrada($_REQUEST['sexo']));
+            $peso = intval(entrada($_REQUEST['peso']));
             $altura = floatval(entrada($_REQUEST['altura']));
             $idRaca = intval(entrada($_REQUEST['raca']));
             $idCor = intval(entrada($_REQUEST['cor']));
             $dataChegada = entrada($_REQUEST['dataChegada']);
             $dataObito = entrada($_REQUEST['dataObito']);
             $obs = entrada($_REQUEST['obs']);
-            // passamos pela validação
+            
+            if(strlen($nome)<10){
+                echo 'Nome muito pequeno.';
+                break;
+            }
+// passamos pela validação
             
             $animal = new Animal();
-            $animal->setNome($nome);
+            $animal->setNome(mb_strtoupper($nome, 'utf-8'));
             $animal->setDescricao($descricao);
             $animal->setSexo($sexo);
+            $animal->setPeso($peso);
             $animal->setAltura($altura);
             $animal->setIdRaca($idRaca);
             $animal->setIdCor($idCor);
@@ -26,14 +33,13 @@ switch ($_REQUEST['acao']) {
             $animal->setDataObito($dataObito);
             $animal->setObs($obs);
             $animal->setStatus(1);
-            echo 'Próxima aula continuamos daqui. =)';
-            break;
+            
             $animalDao = AnimalDAO::getInstance();
             $retorno = $animalDao->inserirAnimal($animal);
             if($retorno){
-                // sucesso;
+                echo '<script>window.location = "cadastroAnimal?msg=Inserido com sucesso."</script>';
             }else{
-                // erro;
+                echo 'Erro na inserção no banco de dados';
             }            
         }break;
     default: {
