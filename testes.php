@@ -1,29 +1,9 @@
 <?php
+require_once './gerenciaSessao.php';
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/HappyDog/dao/UsuarioDAO.php";
+$cliente = array('nome'=>'Chris Manuel', 'email' => 'chrismanuel@iftm.edu.br');
 
-$usuarioDao = UsuarioDAO::getInstance();
-
-$usuarios = $usuarioDao->listarUsuarios(0);//echo strlen('tamanho dessa palavra');
-
-foreach ($usuarios as $i => $usuario) {
-    echo 'Este é o registro numero: '.($i+1).' = ';
-    echo $usuario->getDescricao();
-    echo '<br>';
-}
+$ses->addNode('cliente', $cliente);
 
 
-
-
-
-
-/*
-  //
-  require_once $_SERVER['DOCUMENT_ROOT'].'/HappyDog/entidade/Usuario.php';
-
-  $novoUsuario = new Usuario();
-
-  $novoUsuario->setNome('Chris');
- */
 ?>
-

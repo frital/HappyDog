@@ -20,14 +20,18 @@ switch ($_REQUEST['acao']) {
                 echo 'Mensagem obrigatória.';
                 break;
             }
-            $msgFinal = 'Nome: '.$nome.'<br>';
-            $msgFinal .= 'Email: '.$email.'<br>';
-            $msgFinal .= 'Telefone: '.$telefone.'<br>';
-            $msgFinal .= 'Mensagem: '.$msg.'<br>';
+            $msgFinal = 'Nome: ' . $nome . '<br>';
+            $msgFinal .= 'Email: ' . $email . '<br>';
+            $msgFinal .= 'Telefone: ' . $telefone . '<br>';
+            $msgFinal .= 'Mensagem: ' . $msg . '<br>';
             mail('chrismanuel@iftm.edu.br', 'Contato realizado no site', $msgFinal);
             // enviar o e-mail;
         }break;
+    case 'cadastrar': {
+            echo '<span class="alert alert-danger col-md-12">Estamos aqui</span>';
+        }break;
     default: {
+            
         }break;
 }
 

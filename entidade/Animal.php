@@ -3,7 +3,7 @@ class Animal {
     private $idAnimal;
     private $nome;
     private $descricao;
-    private $sexo;
+ /*   private $sexo;
     private $peso;
     private $altura;
     private $idRaca;
@@ -11,7 +11,7 @@ class Animal {
     private $dataChegada;
     private $dataObito;
     private $obs;
-    private $status;
+    private $status;*/
     
     public function __construct() {
     }

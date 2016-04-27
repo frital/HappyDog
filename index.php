@@ -1,43 +1,40 @@
-<?php 
+<?php
 include_once 'head.php';
 ?>
-    <body>
+<body>
+    <div class="container">
+        <?php
+        include_once 'menu.php';
+        ?>
         <div class="container">
-            <?php
-            include_once 'menu.php';
-            ?>
-            <div class="container">
-                <form class="col-md-6">
-                    <div class="form-group">
-                        <label>Nome:</label>
-                        <input type="text" class="form-control" name="nome" maxlength="255">
+            <form id="formCadastrar" class="col-md-6">
+                 <div class="form-group" id="retorno2">                   
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Campo 1:</span>
+                        <input class="form-control" name="campo1" id="campo1">
                     </div>
-                    <div class="form-group">
-                        <label>Email:</label>
-                        <input type="email" class="form-control" name="email" maxlength="255">
+                </div>
+                <div class=" form-group ">
+                    <div class="input-group">
+                        <span class="input-group-addon">Campo 2:</span>
+                        <input class="form-control" name="campo2" id="campo2">
                     </div>
-                    <div class="form-group">
-                        <label>Telefone:</label>
-                        <input type="text" class="form-control" name="telefone" maxlength="20">
-                    </div>
-                    <div class="form-group">
-                        <label>Sua mensagem:</label>
-                        <textarea name="conteudo"  class="form-control" rows="3" placeholder="Deixe aqui a sua mensagem."></textarea>
-                    </div>
-                  
-                    <div class="form-group">
-                        <button type="button" class="btn btn-primary" onclick="alert('alo');">Enviar</button>
-                    </div>
-
-
-                </form>
-                
-                
-                
-            </div>
-            <?php include 'rodape.php';
-            ?>       
+                </div>
+                <div class="form-group" id="retorno">                   
+                </div>
+                <div class=" form-group " id="processando" style="display: none;" >
+                    <img src="img/ajax-loader.gif" />
+                </div>
+                <div class=" form-group  text-right">
+                    <button type="button" class="btn btn-success" id="cadastrar">Enviar</button>
+                </div>
+            </form>
         </div>
-    </body>
+        <?php include 'rodape.php';
+        ?>       
+    </div>
+</body>
 </html>
 

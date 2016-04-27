@@ -96,7 +96,41 @@ function ajax() {
     });
 }
 
-
+$(document).ready(function(){
+    $('#cadastrar').on('click touchstart', function(){
+        var form = document.getElementById('formCadastrar');
+        if(form.campo1.value.length < 5){
+            form.campo1.focus();
+            return false;
+        }else if(form.campo2.value.length < 5){
+            form.campo2.focus();
+            return false;
+        }
+        $.ajax({
+            type:'POST',
+            url:'controle/controleUsuario.php',
+            data:{acao: 'cadastrar',
+                campo1: form.campo1.value,
+                campo2: form.campo2.value
+            },
+            success: function(data){
+             $('#retorno').html(data);
+             $('#retorno2').html(data);
+            },
+            beforeSend: function(){
+                $('#processando').css({display: 'inline'});
+            },
+            complete: function(){
+                $('#processando').css({display: 'none'});
+            },
+            error: function(evento, request, settings){
+                alert(settings);
+            }
+            
+        });
+    })
+    
+});
 
 
 
