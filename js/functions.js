@@ -132,14 +132,34 @@ $(document).ready(function(){
     
 });
 
+$(function() {
+    $('#formEnviarArquivo').submit(function(e) {
+        e.preventDefault();
+        var formData = new FormData();
+        var f = document.getElementById('formEnviarArquivo');
+        
+        formData.append('acao', 'upload');
+        formData.append('texto', f.texto.value);
+        formData.append('arquivo1', $('#arquivo').prop('files')[0]);
+        formData.append('arquivo2', $('#arquivo').prop('files')[1]);
+        
 
-
-/* if (form.nome.value.length < 5) {
- alert('Nome obrigatório.');
- form.nome.focus();
- return false;
- } else if (form.emailContato.value.length < 10) {
- alert('Email obrigatório.');
- form.emailContato.focus();
- return false;
- }*/
+        $.ajax({
+            url: 'controle/controleAnimal.php',
+            data: formData,
+            type: 'post',
+            success: function(data) {
+                $('#retorno').html(data);
+            },
+            beforeSend: function() {
+                $('#procP').css({display: "block"});
+            },
+            complete: function() {
+                $('#procP').css({display: "none"});
+            },
+            processData: false,
+            cache: false,
+            contentType: false
+        });
+    });
+});
