@@ -1,5 +1,6 @@
 <?php
-
+require_once '../dao/UsuarioDAO.php';
+session_start();
 switch ($_REQUEST['acao']) {
     case 'contato': {
             $nome = entrada($_REQUEST['nome']);
@@ -28,7 +29,31 @@ switch ($_REQUEST['acao']) {
             // enviar o e-mail;
         }break;
     case 'cadastrar': {
+        $usuario = $_SESSION['admin'];
+        
+        if($_SESSION)
             echo '<span class="alert alert-danger col-md-12">Estamos aqui</span>';
+        }break;
+    case 'login': {
+        
+            $login = entrada($_REQUEST['login']);
+            $senha = entrada($_REQUEST['senha']);
+            if(empty($login)){
+                echo 'Favor informe o login;';
+                break;
+            }
+            if(empty($senha)){
+                echo 'Favor informe a senha;';
+                break;
+            }            
+            $usuarioDao = UsuarioDAO::getInstance();
+            $admin = $usuarioDao->login($login,$senha);
+            if($admin){
+                $_SESSION['admin']=$admin[0];
+                echo '<script>window.location.href = "interno"</script>';
+            }else{
+                echo 'Erro de autenticação';
+            }
         }break;
     default: {
             

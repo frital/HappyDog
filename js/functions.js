@@ -132,6 +132,35 @@ $(document).ready(function(){
     
 });
 
+$(document).ready(function(){
+    $('#btn_login').on('click touchstart', function(){
+        var form = document.getElementById('form_login');
+        
+        $.ajax({
+            type:'POST',
+            url:'controle/controleUsuario.php',
+            data:{acao: 'login',
+                login: form.login.value,
+                senha: form.senha.value
+            },
+            success: function(data){
+             $('#retorno').html(data);
+            },
+            beforeSend: function(){
+                $('#processando').css({display: 'inline'});
+            },
+            complete: function(){
+                $('#processando').css({display: 'none'});
+            },
+            error: function(evento, request, settings){
+                alert(settings);
+            }
+            
+        });
+    })
+    
+});
+
 $(function() {
     $('#formEnviarArquivo').submit(function(e) {
         e.preventDefault();

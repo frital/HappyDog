@@ -5,6 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/HappyDog/dao/AnimalDAO.php";
 
 switch ($_REQUEST['acao']) {
     case 'inserirAnimal': {
+        // verifica a sessao5
             $nome = entrada($_REQUEST['nome']);
             $descricao = entrada($_REQUEST['descricao']);
             $sexo = intval(entrada($_REQUEST['sexo']));
