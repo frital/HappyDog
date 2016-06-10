@@ -42,13 +42,13 @@ include_once 'head.php';
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">Campo 1:</span>
-                        <input class="form-control" name="campo1" id="campo1">
+                        <input class="form-control cpf" name="campo1" id="campo1">
                     </div>
                 </div>
                 <div class=" form-group ">
                     <div class="input-group">
                         <span class="input-group-addon">Campo 2:</span>
-                        <input class="form-control" name="campo2" id="campo2">
+                        <input type="text" maxlength="9" class="form-control" onkeyup="mascara(this,mcep);"name="campo2" id="campo2">
                     </div>
                 </div>
                 <div class="form-group" id="retorno">                   

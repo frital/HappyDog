@@ -1,3 +1,4 @@
+
 function troca(x) {
     if (x.value == 'fisica') {
         document.getElementById('divFisica').style.display = 'block';
@@ -35,54 +36,14 @@ function contato() {
 
 }
 
-$(document).ready(function() {
-    $("#cadastrarAnimal").on('click touchstart', function() {
-        var form = document.getElementById('formCadastroAnimal');
-        var sexo = form.sexo;
-        var sexoFinal = null;
-        /*  for(var i=0; i<sexo.length; i++){
-         if(sexo[i].checked == true){
-         sexoFinal = sexo[i].value;
-         }
-         }*/
-        if (sexo[0].checked == true) {
-            sexoFinal = 1;
-        } else {
-            sexoFinal = 2;
-        }
-        
-        $.ajax({
-            type: 'POST',
-            url: './controle/controleAnimal.php',
-            data: {acao: 'inserirAnimal',
-                nome: form.nome.value,
-                descricao: form.descricao.value,
-                sexo: sexoFinal,
-                peso: form.peso.value,
-                altura: form.altura.value,
-                raca: form.raca.value,
-                cor: form.cor.value,
-                dataChegada: form.dataChegada.value,
-                dataObito: form.dataObito.value,
-                obs: form.obs.value
-            },
-            success: function(data) {
-                $('#retornoCadAnimal').html(data);
-            },
-            complete: function() {
-                $('#retornoCadAnimal').css({display: "block"});
-                $('#procCadAnimal').css({display: "none"});
-            },
-            beforeSend: function() {
-                $('#procCadAnimal').css({display: "block"});
-            },
-            error: function() {
-                $('#retornoCadAnimal').html('Erro em carregar o Ajax');
-            }
-        });
-
-    });
-});
+function cadastro(){
+    var form = document.getElementById('formCadastroAnimal');
+    var tam = form.elements.length;
+    for(var i=7; i<tam; i++){
+        alert(form.elements[i].type);
+    }
+    
+}
 
 function ajax() {
     var nome = document.getElementById("nome").value;
@@ -96,69 +57,69 @@ function ajax() {
     });
 }
 
-$(document).ready(function(){
-    $('#cadastrar').on('click touchstart', function(){
+$(document).ready(function() {
+    $('#cadastrar').on('click touchstart', function() {
         var form = document.getElementById('formCadastrar');
-        if(form.campo1.value.length < 5){
+        if (form.campo1.value.length < 5) {
             form.campo1.focus();
             return false;
-        }else if(form.campo2.value.length < 5){
+        } else if (form.campo2.value.length < 5) {
             form.campo2.focus();
             return false;
         }
         $.ajax({
-            type:'POST',
-            url:'controle/controleUsuario.php',
-            data:{acao: 'cadastrar',
+            type: 'POST',
+            url: 'controle/controleUsuario.php',
+            data: {acao: 'cadastrar',
                 campo1: form.campo1.value,
                 campo2: form.campo2.value
             },
-            success: function(data){
-             $('#retorno').html(data);
-             $('#retorno2').html(data);
+            success: function(data) {
+                $('#retorno').html(data);
+                $('#retorno2').html(data);
             },
-            beforeSend: function(){
+            beforeSend: function() {
                 $('#processando').css({display: 'inline'});
             },
-            complete: function(){
+            complete: function() {
                 $('#processando').css({display: 'none'});
             },
-            error: function(evento, request, settings){
+            error: function(evento, request, settings) {
                 alert(settings);
             }
-            
+
         });
     })
-    
+
 });
 
-$(document).ready(function(){
-    $('#btn_login').on('click touchstart', function(){
+$(document).ready(function() {
+    $('#btn_login').on('click touchstart', function() {
         var form = document.getElementById('form_login');
-        
+
         $.ajax({
-            type:'POST',
-            url:'controle/controleUsuario.php',
-            data:{acao: 'login',
+            type: 'POST',
+            url: 'controle/controleUsuario.php',
+            data: {acao: 'login',
                 login: form.login.value,
                 senha: form.senha.value
             },
-            success: function(data){
-             $('#retorno').html(data);
+            success: function(data) {
+                $('#retorno').html(data);
             },
-            beforeSend: function(){
+            beforeSend: function() {
                 $('#processando').css({display: 'inline'});
             },
-            complete: function(){
+            complete: function() {
                 $('#processando').css({display: 'none'});
             },
-            error: function(evento, request, settings){
+            error: function(evento, request, settings) {
                 alert(settings);
             }
-            
+
         });
     })
-    
+
 });
 
 $(function() {
@@ -166,12 +127,12 @@ $(function() {
         e.preventDefault();
         var formData = new FormData();
         var f = document.getElementById('formEnviarArquivo');
-        
+
         formData.append('acao', 'upload');
         formData.append('texto', f.texto.value);
         formData.append('arquivo1', $('#arquivo').prop('files')[0]);
         formData.append('arquivo2', $('#arquivo').prop('files')[1]);
-        
+
 
         $.ajax({
             url: 'controle/controleAnimal.php',

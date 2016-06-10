@@ -29,6 +29,8 @@ switch ($_REQUEST['acao']) {
             // enviar o e-mail;
         }break;
     case 'cadastrar': {
+        print_r($_REQUEST);
+        break;
         $usuario = $_SESSION['admin'];
         
         if($_SESSION)

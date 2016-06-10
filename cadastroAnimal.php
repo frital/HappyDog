@@ -81,7 +81,7 @@ include_once 'head.php';
             </div>
             <div class="form-group" id="retornoCadAnimal">
             </div>
-            <button type="button" id="cadastrarAnimal" class="btn btn-success">Cadastrar</button>
+            <button type="button" id="cadastrarAnimal" class="btn btn-success" onclick="cadastro();">Cadastrar</button>
         </form>
         <div class="col-md-3"></div>
     </div>
